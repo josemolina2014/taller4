@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="postgresql-rds">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.serverless/postgresql-rds.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
