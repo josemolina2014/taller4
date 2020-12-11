@@ -12,39 +12,40 @@ provider:
   environment:
     PATH_RESOURCES: /v1/matricula/dev
 
+
 functions:
   getTodo:
-    handler: handler.getTodo
+    handler: handler.getEstudiante
     events:
       - http:
-          path: todo/{id}
+          path: ${self:provider.environment.PATH_RESOURCES}/Estudiante/{id}
           method: get
     memorySize: 128
   getAllTodos:
-    handler: handler.getAllTodos
+    handler: handler.getAllEstudiantes
     events:
       - http:
-          path: todo
+          path: ${self:provider.environment.PATH_RESOURCES}/Estudiante
           method: get
           cors: true
   createTodo:
-    handler: handler.createTodo
+    handler: handler.createEstudiante
     events:
       - http:
-          path: todo
+          path: ${self:provider.environment.PATH_RESOURCES}/Estudiante
           method: post
           cors: true
   updateTodo:
-    handler: handler.updateTodo
+    handler: handler.updateEstudiante
     events:
         - http:
-          path: todo/{id}
+          path: ${self:provider.environment.PATH_RESOURCES}/Estudiante/{id}
           method: put
           cors: true
   deleteTodo:
-    handler: handler.deleteTodo
+    handler: handler.deleteEstudiante
     events:
       - http:
-          path: todo/{id}
+          path: ${self:provider.environment.PATH_RESOURCES}/Estudiante/{id}
           method: delete
           cors: true

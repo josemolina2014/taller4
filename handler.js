@@ -1,8 +1,8 @@
 const db = require('./db_connect')
 
-module.exports.getAllTodos = (event, context, callback) => {
+module.exports.getAllEstudiantes = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false
-  console.log('getAllTodos')
+  console.log('getAllEstudiantes')
 
   db.getAll('"Estudiante"')
     .then(res => {
@@ -20,7 +20,7 @@ module.exports.getAllTodos = (event, context, callback) => {
     })
 }
 
-module.exports.getTodo = (event, context, callback) => {
+module.exports.getEstudiante = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false
  /* db.query('select * from public."Estudiante" ' +
     'where codigo  = $1', event.pathParameters.id) */
@@ -38,54 +38,54 @@ module.exports.getTodo = (event, context, callback) => {
       })
     })
 }
-module.exports.createTodo = (event, context, callback) => {
+module.exports.createEstudiante = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const data = JSON.parse(event.body);
   db.insert('"Estudiante"', data)
     .then(res => {
       callback(null,{
         statusCode: 200,
-        body: "Todo Created!" + res
+        body: "Estudiante Created!" + res
       })
     })
     .catch(e => {
       callback(null,{
         statusCode: e.statusCode || 500,
-        body: "Could not create Todo " + e
+        body: "Could not create Estudiante " + e
       })
     })
 };
 
-module.exports.updateTodo = (event, context, callback) => {
+module.exports.updateEstudiante = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const data = JSON.parse(event.body);
   db.updateById('"Estudiante"', event.pathParameters.id, data)
     .then(res => {
       callback(null,{
         statusCode: 200,
-        body: "Todo Updated!" + res
+        body: "Estudiante Updated!" + res
       })
     })
     .catch(e => {
       callback(null,{
         statusCode: e.statusCode || 500,
-        body: "Could not update Todo" + e
+        body: "Could not update Estudiante" + e
       })
     })
 };
-module.exports.deleteTodo = (event, context, callback) => {
+module.exports.deleteEstudiante = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   db.deleteById('"Estudiante"', event.pathParameters.id)
     .then(res => {
       callback(null,{
         statusCode: 200,
-        body: "Todo Deleted!"
+        body: "Estudiante Deleted!"
       })
     })
     .catch(e => {
       callback(null,{
         statusCode: e.statusCode || 500,
-        body: "Could not delete Todo" + e
+        body: "Could not delete Estudiante" + e
       })
     })
 };
