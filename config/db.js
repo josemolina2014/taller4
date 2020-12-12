@@ -1,8 +1,8 @@
 module.exports =
 {
   database: 'postgres',
-  host: 'matricula-db.cscdy29qc40b.us-east-1.rds.amazonaws.com',
+  host: 'xxxxxxxx',
   port: '5432',
   user: 'postgres',
-  password: 'Taller4-dev#'
+  password: 'xxxxxx'
 }
